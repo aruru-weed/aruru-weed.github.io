@@ -11,9 +11,9 @@
         return obj.toString().padStart(digit, 0);
     }
     
-    function row_zeroFiller(num, digit){
-        let result =  obj.toString();
-        for(;result.length <= digit; result = ' ' + result);
+    function row_zeroFiller(obj, digit){
+        let result = obj.toString();
+        for(;result.length < digit; result = '0' + result);
         return result;
     }
     

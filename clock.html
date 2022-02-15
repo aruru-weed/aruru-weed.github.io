@@ -30,13 +30,13 @@
                           zeroFiller(date.getHours(), 2) + "時 " + 
                           zeroFiller(date.getMinutes(), 2) + "分" + 
                           zeroFiller(date.getSeconds(), 2) + "秒 " + 
-                          zeroFiller(date.getMilliseconds(), 4) ;
+                          zeroFiller(Math.floor(date.getMilliseconds() / 10), 2) ;
         //document.getElementById("here").innerHTML = time;
         return time;
     }
     
     function showClock(){
-        document.getElementById("here").innerHTML = time;
+        document.getElementById("here").innerHTML = getTime();
     }
     
     document.addEventListener('DOMContentLoaded', () => {

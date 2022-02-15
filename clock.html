@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>時計</title>
+  </head>
+  <body>
+    <p id="here" style="text-align:center; font-size:4vw; padding-top:35vh;"></p>
+    <script type="text/javascript">
+    function zeroFiller(obj, digit){
+        return obj.toString().padStart(digit, 0);
+    }
+    
+    function row_zeroFiller(num, digit){
+        let result =  obj.toString();
+        for(;result.length <= digit; result = ' ' + result);
+        return result;
+    }
+    
+    function getJpaneseDay(date){
+        return ['日', '月', '火', '水', '木', '金', '土'][date.getDay()];
+    }
+    
+    function showClock() {
+        const date = new Date();
+        let time = date.getFullYear() + "年 " +
+                          zeroFiller(date.getMonth(), 2)  + "月 " +
+                          zeroFiller(date.getDate(), 2) + "日 " +
+                          getJapaneseDay(date) + "曜日 " +
+                          zeroFiller(date.getHour(), 2) + "時 " + 
+                          zeroFiller(date.getMinutes(), 2) + "分" + 
+                          zeroFiller(date.getSeconds(), 2) + "秒 " + 
+                          zeroFiller(date.getMiliseconds(), 4) ;
+        document.getElementById("here").innerHTML = time
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        setInterval(showClock,10);
+    });
+    </script>
+  </body>
+</html>

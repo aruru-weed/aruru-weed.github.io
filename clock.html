@@ -17,22 +17,28 @@
         return result;
     }
     
-    function getJpaneseDay(date){
+    function getJapaneseDay(date){
         return ['日', '月', '火', '水', '木', '金', '土'][date.getDay()];
     }
     
-    function showClock() {
+    function getTime() {
         const date = new Date();
         let time = date.getFullYear() + "年 " +
                           zeroFiller(date.getMonth(), 2)  + "月 " +
                           zeroFiller(date.getDate(), 2) + "日 " +
                           getJapaneseDay(date) + "曜日 " +
-                          zeroFiller(date.getHour(), 2) + "時 " + 
+                          zeroFiller(date.getHours(), 2) + "時 " + 
                           zeroFiller(date.getMinutes(), 2) + "分" + 
                           zeroFiller(date.getSeconds(), 2) + "秒 " + 
-                          zeroFiller(date.getMiliseconds(), 4) ;
-        document.getElementById("here").innerHTML = time
+                          zeroFiller(date.getMilliseconds(), 4) ;
+        //document.getElementById("here").innerHTML = time;
+        return time;
     }
+    
+    function showClock(){
+        document.getElementById("here").innerHTML = time;
+    }
+    
     document.addEventListener('DOMContentLoaded', () => {
         setInterval(showClock,10);
     });
